@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : ecriture_spi_V2.py
-#       Date : 17/09/2016
-#       File Version : 1.0
+#       Date : 21/09/2016
+#       File Version : 1.01
 #       Written by : JorisP30
 #       Function : Ecriture des donnees de la memoire flash dans l'Atmega
 # ============================================================ #
@@ -30,6 +30,10 @@ fich_txt = "prog.rom"
 nb_mot_page = 64
 high = 1
 low = 0
+
+LPMP_L = 0x40
+LPMP_H = 0x48
+WPMP = 0x4C
 # ================
 
 fctn_programmer.off_on_rst(pin_reset) # 
@@ -45,7 +49,7 @@ print(nb_page_complete , reste_page , nb_page_totale)
 print("Attente suite")
 input()
 
-fctn_programmer.progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page , nb_page_totale)
+fctn_programmer.progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page , nb_page_totale , LPMP_L , LPMP_H , WPMP)
 
 gpio.output(pin_reset , high)
 spi.close()

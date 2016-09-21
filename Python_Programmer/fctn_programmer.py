@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : fctn_programmer.py
-#       Date : 17/09/2016
-#       File Version : 1.0
+#       Date : 21/09/2016
+#       File Version : 1.01
 #       Written by : JorisP30
 #       Function : fichier contenant les functions du programmer
 # ============================================================ #
@@ -10,6 +10,7 @@
 import spidev # Pour l'utilisation du spi import
 import RPi.GPIO as gpio # Pour l'utilisation des E/S
 import time
+import sys
 # ============================
 
 # == Initialisation du SPI , Obligatoire ==
@@ -68,7 +69,7 @@ def recup_infos_fichier(fich_txt):
 	return nb_page_complete , reste_page , nb_page_totale
 
 
-def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_totale):
+def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_totale , LPMP_L , LPMP_H , WPMP ):
 	fichier = open(fich_txt , "r")
 	cpt_nbl = 0
 	for indice in range(0 , nb_page_complete):
@@ -86,8 +87,8 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
                         adr_fort = adr_l & 0b1111111100000000
                         adr_fort = adr_fort >>8
                         adr_faible = adr_l & 255
-			spi.writebytes([0x40 , adr_fort , adr_faible , data_faible])
-                        spi.writebytes([0x48 , adr_fort , adr_faible , data_fort])
+			spi.writebytes([LPMP_L , adr_fort , adr_faible , data_faible])	# Load Programm Memory Page Low Byte = 0x40
+                        spi.writebytes([LPMP_H , adr_fort , adr_faible , data_fort])	# Load Programm Memory Page High Byte = 0x48
                         cpt_nbl = cpt_nbl + 1
 			print(" %s : %s %s " % ( hex(cpt_nbl - 1) , hex(data_fort) , hex(data_faible)))
 
@@ -96,7 +97,7 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
                 grp_haut = num_grp & 0b0001111100000000
                 grp_haut = grp_haut >> 8
                 grp_bas = num_grp & 0b11000000
-		spi.writebytes([0x4C , grp_haut ,grp_bas , 0]) # Ecriture du groupe
+		spi.writebytes([WPMP , grp_haut ,grp_bas , 0]) # Ecriture du groupe = 0x4C
 
 	for indice_biss in range(0 , reste_page):
 		ligne = fichier.readline()
@@ -112,8 +113,8 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
 		adr_fort = adr_l & 0b1111111100000000
 		adr_fort = adr_fort >>8
 		adr_faible = adr_l & 255
-		spi.writebytes([0x40 , adr_fort , adr_faible , data_faible])
-		spi.writebytes([0x48 , adr_fort , adr_faible , data_fort])
+		spi.writebytes([LPMP_L , adr_fort , adr_faible , data_faible]) # Load Program Mempry Page Low Byte
+		spi.writebytes([LPMP_H , adr_fort , adr_faible , data_fort])	# Load Program Memory Page High Byte
 		cpt_nbl = cpt_nbl + 1
 		print("%s : %s %s " % (hex(cpt_nbl - 1 ) , hex(data_fort) , hex(data_faible)))
 		
@@ -122,7 +123,7 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
         grp_haut = num_grp & 0b0001111100000000
         grp_haut = grp_haut >> 8
         grp_bas = num_grp & 0b11000000
-        spi.writebytes([0x4C , grp_haut ,grp_bas , 0]) # Ecriture du groupe
+        spi.writebytes([WPMP , grp_haut ,grp_bas , 0]) # Ecriture du groupe
         fichier.close()
         spi.close()
         print("Programme mem flash Done.")
