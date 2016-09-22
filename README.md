@@ -6,4 +6,4 @@ Currently the progrrammer can programm an Atmega16 when the ecriture_spi.py file
 ## Conversion
 The program read .rom files , an hexa files created with a C program
 
-`prog.c => rom.c`
+`prog.c => prog.rom`
