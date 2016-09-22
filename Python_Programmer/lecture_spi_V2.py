@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : lecture_spi_V2.py
-#       Date : 21/09/2016
-#       File Version : 1.01
+#       Date : 22/09/2016
+#       File Version : 1.02
 #       Written by : JorisP30
 #       Function : Lecture des donnees de la memoire flash dans l'Atmega
 # ============================================================ #
@@ -10,18 +10,22 @@
 # == Importation des modules ==
 import spidev # Pour l'utilisation du spi import
 import RPi.GPIO as gpio # Pour utiliser les E/S
-import time     # pour les tempos
-import sys
+import time     # Pour les tempos
+import sys	# Pour les arguments
 import fctn_programmer # Fonctions
 # ============================
 
 
-
-#print(sys.argv[1])
-
-
+for i in range(1 , 6):
+	print(sys.argv[i])	# Affichage des Arguments
 
 
+
+mem = sys.argv[1]
+PRG_H = sys.argv[2]
+PRG_L = sys.argv[3]
+RPM_H = sys.argv[4]
+RPM_L = sys.argv[5]
 
 
 
@@ -34,7 +38,7 @@ spi.max_speed_hz = 50000
 # == Constantes ==
 pin_reset = 12  # Pin RAZ atmega
 mem = 8192  #Memoire flash = 8 kWords = 8192
-masque = 0b1111111100000000
+masque = 0b1111111100000000 # = 65280
 pause = 0.1
 PRG_H = 0xAC
 PRG_L = 0x53

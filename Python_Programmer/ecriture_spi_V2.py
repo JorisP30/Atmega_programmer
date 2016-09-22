@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : ecriture_spi_V2.py
-#       Date : 21/09/2016
-#       File Version : 1.01
+#       Date : 22/09/2016
+#       File Version : 1.02
 #       Written by : JorisP30
 #       Function : Ecriture des donnees de la memoire flash dans l'Atmega
 # ============================================================ #
@@ -14,6 +14,20 @@ import time     # pour les tempos
 import sys
 import fctn_programmer # Fonctions
 # ============================
+
+
+
+for i in range(1 , 8):
+        print(sys.argv[i])      # Affichage des Arguments
+
+
+mem = sys.argv[1]
+nb_mot_page = sys.argv[2]
+PRG_H = sys.argv[3]
+PRG_L = sys.argv[4]
+RPM_H = sys.argv[5]
+RPM_L = sys.argv[6]
+WPMP = sys.argrv[7]
 
 # == INITIALISATION SPI GPIO ==
 spi=spidev.SpiDev() # Creation de l'objet SPi
@@ -31,6 +45,9 @@ nb_mot_page = 64
 high = 1
 low = 0
 
+
+PRG_H = 0xAC
+PRG_L = 0x53
 LPMP_L = 0x40
 LPMP_H = 0x48
 WPMP = 0x4C
@@ -40,7 +57,7 @@ fctn_programmer.off_on_rst(pin_reset) #
 print("Attente suite")
 input()
 
-fctn_programmer.prgm_enable(0xAC , 0x53)
+fctn_programmer.prgm_enable(PRG_H , PRG_L)
 print("Attente suite")
 input()
 
