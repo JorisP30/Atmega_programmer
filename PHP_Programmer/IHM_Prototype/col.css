@@ -1,0 +1,92 @@
+html {
+	font-family: 'Verdana';
+	padding: 0px;
+	margin: 0px;
+	overflow:hidden;
+	height: 100%;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	height: 100%;
+	overflow:hidden;
+}
+
+div {
+	box-shadow: 0px 0px 4px 4px #243040;
+	background-color: white;
+	border-radius: 1px;
+	margin: 20px 5px;
+	padding: 10px;
+}
+
+/* col 1 */
+.selectAtm {
+	text-align: center;
+}
+.selectAtm select {
+	width: 80%;
+}
+
+.infoAtm {
+	position: fixed;
+	bottom: 0px;
+}
+
+/* col 2 */
+.reachFile {
+	text-align: center;
+	padding: 3%;
+	background-color: #cc181e;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+.reachFile:hover {
+	background-color: rgb(206, 66, 71);
+}
+
+.selectFile {
+	padding: 0px;
+	height: 40%;
+}
+.selectFile p {
+	margin: 0px;
+	padding:5px;
+}
+.selectFile p:nth-child(2n) {
+	background-color: #d8d8d8;
+}
+.selectFile p:hover {
+	background-color: #a2a2a2;
+}
+
+.outputShell {
+	position: absolute;
+	bottom: 0px;
+	color: white;
+	background-color: black;
+	height: 25%;
+	width: 95%;
+}
+.outputShell p {
+	margin: 0px;
+}
+
+/* col 3 */
+.button {
+	color: white;
+	background-color: #fd4600;
+	border: solid black 1px;
+	padding: 5%;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.button:hover {
+	background-color: #ff8354;
+	cursor: pointer;
+}
