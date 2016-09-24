@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : fctn_programmer.py
-#       Date : 22/09/2016
-#       File Version : 1.02
+#       Date : 24/09/2016
+#       File Version : 1.03
 #       Written by : JorisP30
 #       Function : fichier contenant les functions du programmer
 # ============================================================ #
@@ -76,7 +76,7 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
 	msk_2 = 0b0001111100000000	# Pour la recuperation des @ H
 	msk_3 = 0b11000000		# Pour la recuperation des @ L
 
-	for indice in range(0 , nb_page_complete):
+	for indice in range(0 , nb_page_complete):	# Remplissage des pages completes
 		for indice_bis in range(0 , nb_mot_page):
 			ligne = fichier.readline()
 			adr_data = ligne.split(":") # Recupere @ d'un cote et data de l'au$
@@ -103,7 +103,7 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
                 grp_bas = num_grp & msk_3
 		spi.writebytes([WPMP , grp_haut ,grp_bas , 0]) # Ecriture du groupe = 0x4C
 
-	for indice_biss in range(0 , reste_page):
+	for indice_biss in range(0 , reste_page): # Remplissage de la page incomplete
 		ligne = fichier.readline()
 		adr_data = ligne.split(":") # Recupere @ d'un cote et data de l'au$
 		adr_l = adr_data[0]
