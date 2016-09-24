@@ -19,4 +19,14 @@ $(document).ready(function(){
 			$("#writeButton").removeClass("inactive");
 		}
 	}
+	
+	$("#writeButton").click(function() {
+		
+	});
+	$("#readButton").click(function() {
+		
+	});
+	$("#removeButton").click(function() {
+		
+	});
 });

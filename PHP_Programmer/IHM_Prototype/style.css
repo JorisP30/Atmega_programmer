@@ -82,7 +82,8 @@ div.selectFile p:hover {
 	background-color: #a2a2a2;
 }
 div.selectFile p.selected {
-	background-color: #a2a2a2;
+	background-color: #8e0c0c;
+	color: white;
 }
 
 div.outputShell {
