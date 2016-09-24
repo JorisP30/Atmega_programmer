@@ -6,12 +6,53 @@
 	<meta charset="utf-8">
 	<title>IHM Prototype</title>
     <link rel="stylesheet" href="style.css">
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	
 </head>
 
 <body>
-	<iframe class="border" src="col1.html"></iframe>
-	<iframe src="col2.html"></iframe>
-	<iframe class="border" src="col3.html"></iframe>
+
+	<div class="col border">
+		<div class="selectAtm">
+			<select>
+				<option>xxx</option>
+				<option>yyy</option>
+				<option>zzz</option>
+			</select>
+		</div>
+		<div class="infoAtm">
+			Haec et huius modi quaedam innumerabilia ultrix facinorum impiorum bonorumque praemiatrix aliquotiens operatur Adrastia atque utinam semper quam vocabulo duplici etiam Nemesim appellamus: ius quoddam sublime numinis efficacis, humanarum mentium opinione lunari circulo superpositum, vel ut definiunt alii, substantialis tutela generali potentia partilibus praesidens fatis, quam theologi veteres fingentes Iustitiae filiam ex abdita quadam aeternitate tradunt omnia despectare terrena.
+		</div>
+	</div>
+	<div class="col">
+		<div class="reachFile">ADD FILE</div>
+		<div class="selectFile">
+			<p>Fichier 1</p>
+			<p>Fichier 2</p>
+			<p>Fichier 3</p>
+			<p>Fichier 4</p>
+		</div>
+		<div class="outputShell">
+			<p>> start</p>
+			<p>> start</p>
+			<p>> start</p>
+			<p>> start</p>
+			<p>> start</p>
+		</div>
+	</div>
+	<div class="col border">
+		<div class="lectureButton button">
+		Lecture
+		</div>
+		<div class="suppressionButton button">
+			Suppression
+		</div>
+		<div id="writeButton" class="ecrireButton button inactive">
+			Ecrire
+		</div>
+	</div>
+	<script src="test.js"></script>
 </body>
 
 </html>

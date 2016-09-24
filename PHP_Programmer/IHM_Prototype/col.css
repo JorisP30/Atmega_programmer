@@ -33,6 +33,8 @@ div {
 .infoAtm {
 	position: fixed;
 	bottom: 0px;
+	max-height: 73%;
+	overflow: auto;
 }
 
 /* col 2 */
@@ -50,7 +52,8 @@ div {
 
 .selectFile {
 	padding: 0px;
-	height: 40%;
+	height: 44%;
+	overflow: auto;
 }
 .selectFile p {
 	margin: 0px;
@@ -64,12 +67,10 @@ div {
 }
 
 .outputShell {
-	position: absolute;
-	bottom: 0px;
 	color: white;
 	background-color: black;
-	height: 25%;
-	width: 95%;
+	overflow: auto;
+	height: 30%;
 }
 .outputShell p {
 	margin: 0px;
@@ -78,15 +79,20 @@ div {
 /* col 3 */
 .button {
 	color: white;
-	background-color: #fd4600;
+	background-color: #8e0c0c;
 	border: solid black 1px;
 	padding: 5%;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
+	cursor: pointer;
 }
 
 .button:hover {
-	background-color: #ff8354;
-	cursor: pointer;
+	background-color: #985252;
+}
+
+.inactive {
+	background-color: #985252;
+	cursor: not-allowed;
 }
