@@ -47,8 +47,6 @@ div.selectAtm select {
 }
 
 div.infoAtm {
-	position: absolute;
-	bottom: 0px;
 	max-height: 73%;
 	overflow: auto;
 }
@@ -109,10 +107,10 @@ div.button {
 }
 
 div.button:hover {
-	background-color: #985252;
+	background-color: #983131;
 }
 
 div.inactive.button {
-	background-color: #985252;
+	background-color: #986c6c;
 	cursor: not-allowed;
 }

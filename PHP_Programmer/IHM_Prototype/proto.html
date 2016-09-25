@@ -15,10 +15,10 @@
 
 	<div class="col border">
 		<div class="selectAtm">
-			<select>
-				<option>xxx</option>
-				<option>yyy</option>
-				<option>zzz</option>
+			<select id="id_selectAtm">
+				<option value="xxx">xxx</option>
+				<option value="yyy">yyy</option>
+				<option value="zzz">zzz</option>
 			</select>
 		</div>
 		<div class="infoAtm">
@@ -28,27 +28,22 @@
 	<div class="col">
 		<div class="reachFile">ADD FILE</div>
 		<div class="selectFile">
-			<p>Fichier 1</p>
-			<p>Fichier 2</p>
-			<p>Fichier 3</p>
-			<p>Fichier 4</p>
+			<p absoluteFile="/absolute/directory/file1">Fichier 1</p>
+			<p absoluteFile="/absolute/directory/file2">Fichier 2</p>
+			<p absoluteFile="/absolute/directory/file3">Fichier 3</p>
+			<p absoluteFile="/absolute/directory/file4">Fichier 4</p>
 		</div>
 		<div class="outputShell">
-			<p>> start</p>
-			<p>> start</p>
-			<p>> start</p>
-			<p>> start</p>
-			<p>> start</p>
 		</div>
 	</div>
 	<div class="col border">
-		<div id="readButton" class="lectureButton button">
+		<div commande="read" id="readButton" class="lectureButton button">
 			read
 		</div>
-		<div id="removeButton" class="suppressionButton button">
+		<div commande="erase" id="removeButton" class="suppressionButton button">
 			remove
 		</div>
-		<div id="writeButton" class="ecrireButton button inactive">
+		<div commande="write" id="writeButton" class="ecrireButton button inactive">
 			write
 		</div>
 	</div>
