@@ -2,25 +2,25 @@ fonction php:
 
 read:
 	lit le programme enregistré sur l'atm.
-- entrée: programme de lecture. Argument ?
-- sortie: console web ? fichier ?
+- entrée: programme de lecture. Argument ? => En argument : mem
+- sortie: console web ? fichier ? => Les data s'affiche pour le moment dans la console Rpi, il faudrait que je les ecrive dans un fichier de retour, et on peu le mettre dans une fenetre pour recuperer le fichier
 
 erase:
 	supprime le programme enregistré sur l'atm.
-- entrée: programme de suppression. Argument ?
-- sortie: console web ?
+- entrée: programme de suppression. Argument ? Pas d'argument ici
+- sortie: console web ? Juste que le prog est fini
 
 write:
 	écris un programme sur l'atm.
-- entrée: programme d'écriture, fichier à écrire. Autre ?
-- sortie: console web ?
+- entrée: programme d'écriture, fichier à écrire. Autre ? Arguments : mom , nb_mot_page , nomdu_fichier_.rom
+- sortie: console web ? => Prog done
 
 
 Design:
 
 infoAtm:
-donnée à afficher: image ? texte ? liste ?
+donnée à afficher: image ? texte ? liste ? Du texte principalement
 
 liste des fichiers:
-les fichiers sont il compatible entre plusieurs atm ?
-la liste doit-elle changer en fonction de l'atm selectionné ?
+les fichiers sont il compatible entre plusieurs atm ? Non chaque Atm aura des fichiers different mais tous en .rom
+la liste doit-elle changer en fonction de l'atm selectionné ? Oui, afficher la liste des fichier a envoiyer en fonction de l'Atm ca pourrais etre cool !
