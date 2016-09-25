@@ -61,6 +61,8 @@ fctn_programmer.prgm_enable(PRG_H , PRG_L)
 print("Attente suite")
 input()
 
+fctn_programmer.chip_erase(0xAC , 0x80 , 0x00 , 0x00)
+
 nb_page_complete , reste_page , nb_page_totale = fctn_programmer.recup_infos_fichier(fich_txt)
 print(nb_page_complete , reste_page , nb_page_totale)
 print("Attente suite")
