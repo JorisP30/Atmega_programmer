@@ -4,9 +4,11 @@
 <div class="col border">
     <div class="selectAtm">
       <select id="id_selectAtm">
-        <option value="xxx">xxx</option>
-        <option value="yyy">yyy</option>
-        <option value="zzz">zzz</option>
+        <?php
+          foreach($atmList as $atm) {
+            echo '<option value="'.$atm.'">'.$atm.'</option>';
+          }
+        ?>
       </select>
     </div>
     <div id="info_xxx" class="infoAtm">

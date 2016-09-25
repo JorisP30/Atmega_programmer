@@ -7,7 +7,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>IHM Prototype</title>
+	<title>IHM Programmateur</title>
     <link rel="stylesheet" href="css/style.css">
 	
 	<script src="js/jquery-3.1.1.min.js"></script>
@@ -25,6 +25,7 @@
 	?>
 	<script src="js/script.js"></script>
 	<script src="js/scriptCol1.js"></script>
+	<script src="js/scriptCol3.js"></script>
 	<script src="js/uploadFile.js"></script>
 </body>
 
