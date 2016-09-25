@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-	
+	<script src="jQuery-File-Upload-9.12.5/js/vendor/jquery.ui.widget.js"></script>
+	<script src="jQuery-File-Upload-9.12.5/js/jquery.iframe-transport.js"></script>
+	<script src="jQuery-File-Upload-9.12.5/js/jquery.fileupload.js"></script>
 </head>
 
 <body>
@@ -51,6 +53,10 @@
 	</div>
 	<div class="col">
 		<div class="reachFile">ADD FILE</div>
+		<form id="upload" method="post" action="" enctype="multipart/form-data">
+			<input id="fileupload" type="file" name="files[]" multiple>
+			<input type="submit" value="Upload">
+		</form>
 		<div class="selectFile">
 			<p absoluteFile="/absolute/directory/file1">Fichier 1</p>
 			<p absoluteFile="/absolute/directory/file2">Fichier 2</p>
@@ -73,6 +79,7 @@
 	</div>
 	<script src="script.js"></script>
 	<script src="scriptCol1.js"></script>
+	<script src="uploadFile.js"></script>
 </body>
 
 </html>

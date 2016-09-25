@@ -63,6 +63,9 @@ div.reachFile {
 div.reachFile:hover {
 	background-color: rgb(206, 66, 71);
 }
+form#upload {
+	display: none;
+}
 
 div.selectFile {
 	padding: 0px;
