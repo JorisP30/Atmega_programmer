@@ -1,0 +1,26 @@
+fonction php:
+
+read:
+	lit le programme enregistré sur l'atm.
+- entrée: programme de lecture. Argument ?
+- sortie: console web ? fichier ?
+
+erase:
+	supprime le programme enregistré sur l'atm.
+- entrée: programme de suppression. Argument ?
+- sortie: console web ?
+
+write:
+	écris un programme sur l'atm.
+- entrée: programme d'écriture, fichier à écrire. Autre ?
+- sortie: console web ?
+
+
+Design:
+
+infoAtm:
+donnée à afficher: image ? texte ? liste ?
+
+liste des fichiers:
+les fichiers sont il compatible entre plusieurs atm ?
+la liste doit-elle changer en fonction de l'atm selectionné ?
