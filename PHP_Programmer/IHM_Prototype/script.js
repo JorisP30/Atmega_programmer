@@ -45,11 +45,12 @@ $(document).ready(function(){
 	
 	function writeInConsole($str) {
 		$console.append("<p>" + $str + "</p>");
-		
+		var console = document.getElementById("console");
+		console.scrollTop = console.scrollHeight;
 	}
 	
 	function writeCommandeInConsole($cmd) {
-		writeInConsole("[" + getSelectedAtm() + "]>" + $cmd);
+		writeInConsole("[" + getSelectedAtm() + "]> " + $cmd);
 	}
 	
 	$("#writeButton").click(function() {
