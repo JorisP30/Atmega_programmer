@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "Roboto";
+    src: url('../content/font/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    src: url('../content/font/Roboto-Italic.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-weight: bold;
+    src: url('../content/font/Roboto-Bold.ttf');
+}
+
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: 'Roboto';
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-color: #36465d;
+	overflow: hidden;
+	font-size: 0px;
+}
+
+div.col {
+	font-size: 16px;
+	position: relative;
+	width: 50%;
+	height: 100%;
+	padding: 1%;
+	margin: 0px;
+	display: inline-block;
+	vertical-align: top;
+}
+div.border {
+	width: 22%;
+}
+
+.col div {
+	box-shadow: 0px 0px 4px 4px #243040;
+	background-color: white;
+	border-radius: 1px;
+	margin-bottom: 15px;
+	padding: 10px;
+	display: block;
+}
+
+
+
+/* col 1 */
+div.selectAtm {
+	text-align: center;
+}
+div.selectAtm select {
+	width: 80%;
+}
+
+div.infoAtm {
+	font-size: 14px;
+	max-height: 73%;
+	overflow: auto;
+	display: none;
+	padding-left: 25px;
+}
+div.infoAtm ul {
+	margin: 0px;
+	padding: 0px;
+}
+div.infoAtm li {
+	margin: 5px 0px;
+}
+
+/* col 2 */
+div.reachFile {
+	text-align: center;
+	padding: 3%;
+	background-color: #cc181e;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+div.reachFile:hover {
+	background-color: rgb(206, 66, 71);
+}
+form#upload {
+	display: none;
+}
+
+div.selectFile {
+	padding: 0px;
+	height: 44%;
+	overflow: auto;
+}
+div.selectFile p {
+	margin: 0px;
+	padding:5px;
+}
+div.selectFile p:nth-child(2n) {
+	background-color: #d8d8d8;
+}
+div.selectFile p:hover {
+	background-color: #a2a2a2;
+}
+div.selectFile p.selected {
+	background-color: #8e0c0c;
+	color: white;
+}
+
+div.outputShell {
+	color: white;
+	background-color: black;
+	overflow: auto;
+	height: 30%;
+	font-size: 14px;
+	font-family: monospace;
+}
+div.outputShell p {
+	margin: 0px;
+}
+
+/* col 3 */
+div.button {
+	color: white;
+	background-color: #8e0c0c;
+	border: solid black 1px;
+	padding: 5%;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+}
+
+div.button:hover {
+	background-color: #983131;
+}
+
+div.inactive.button {
+	background-color: #986c6c;
+	cursor: not-allowed;
+}
