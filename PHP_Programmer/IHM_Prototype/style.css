@@ -1,8 +1,23 @@
+@font-face {
+    font-family: "Roboto";
+    src: url('font/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    src: url('font/Roboto-Italic.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-weight: bold;
+    src: url('font/Roboto-Bold.ttf');
+}
+
 html {
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
-	font-family: 'Verdana';
+	font-family: 'Roboto';
 }
 
 body {
