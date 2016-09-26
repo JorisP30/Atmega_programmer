@@ -14,6 +14,8 @@ $(function(){
   $('#id_selectAtm').change(function(){
     var atm = $(this).val();
     printAtmFile(atm);
+    $selectedFile = null;
+    toggleWriteButton();
   });
   printAtmFile(getSelectedAtm());
 }); 

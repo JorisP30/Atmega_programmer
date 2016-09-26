@@ -1,13 +1,5 @@
 $(function(){
-
-  function toggleWriteButton() {
-    if ($selectedFile == null) {
-      $("#writeButton").addClass("inactive");
-    } else {
-      $("#writeButton").removeClass("inactive");
-    }
-  }
-
+  
   function sendAction(url, arg) {
     $.post(url, arg, function (data) {
       writeInConsole(data);

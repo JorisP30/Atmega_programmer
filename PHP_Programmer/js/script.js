@@ -18,3 +18,11 @@ function writeInConsole($str) {
 function writeCommandeInConsole($cmd) {
 	writeInConsole("[" + getSelectedAtm() + "]> " + $cmd);
 }
+
+function toggleWriteButton() {
+  if ($selectedFile == null) {
+    $("#writeButton").addClass("inactive");
+  } else {
+    $("#writeButton").removeClass("inactive");
+  }
+}

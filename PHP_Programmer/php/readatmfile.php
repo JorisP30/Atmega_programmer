@@ -10,6 +10,5 @@
   for ($i = 2; $i < count($files); ++$i) {
     $rep .= "<p absoluteFile='".$urlAtmDir."/".$files[$i]."'>".$files[$i]."</p>";
   }
-  sleep(1);
   echo $rep;
 ?>
