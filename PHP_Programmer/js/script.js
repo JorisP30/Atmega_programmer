@@ -18,9 +18,3 @@ function writeInConsole($str) {
 function writeCommandeInConsole($cmd) {
 	writeInConsole("[" + getSelectedAtm() + "]> " + $cmd);
 }
-
-function sendAction(url, arg) {
-	$.post(url, arg, function (data) {
-		writeInConsole(data);
-	});
-}

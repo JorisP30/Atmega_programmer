@@ -25,6 +25,7 @@
 	?>
 	<script src="js/script.js"></script>
 	<script src="js/scriptCol1.js"></script>
+	<script src="js/scriptCol2.js"></script>
 	<script src="js/scriptCol3.js"></script>
 	<script src="js/uploadFile.js"></script>
 </body>

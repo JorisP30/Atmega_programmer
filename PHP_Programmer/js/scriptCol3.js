@@ -8,14 +8,25 @@ $(function(){
     }
   }
 
-  $(".selectFile p").click(function() {
-    if ($(this).hasClass("selected")) {
-      $(this).removeClass("selected");
+  function sendAction(url, arg) {
+    $.post(url, arg, function (data) {
+      writeInConsole(data);
+      setActionButtonActive();
+    });
+  }
+
+  $(".selectFile").click(function(event) {
+    $this = $(event.target);
+    if (!$this[0].hasAttribute("absoluteFile")) {
+      return;
+    }
+    if ($this.hasClass("selected")) {
+      $this.removeClass("selected");
       $selectedFile = null;
     } else {
       $(".selected").removeClass("selected");
-      $(this).addClass("selected");
-      $selectedFile = $(this);
+      $this.addClass("selected");
+      $selectedFile = $this;
     }
     toggleWriteButton();
   });
@@ -41,7 +52,6 @@ $(function(){
     writeCommandeInConsole($(this).attr("commande") + " " + $selectedFile.attr("absoluteFile"));
     setActionButtonInactive();
     sendAction($(this).attr("url"), {file : $selectedFile.attr("absoluteFile")});
-    setActionButtonActive();
   });
 
   $("#readButton").click(function() {
@@ -51,7 +61,6 @@ $(function(){
     writeCommandeInConsole($(this).attr("commande"));
     setActionButtonInactive();
     sendAction($(this).attr("url"), {});
-    setActionButtonActive();
   });
 
   $("#removeButton").click(function() {
@@ -61,6 +70,5 @@ $(function(){
     writeCommandeInConsole($(this).attr("commande"));
     setActionButtonInactive();
     sendAction($(this).attr("url"), {});
-    setActionButtonActive();
   });
 });
