@@ -22,7 +22,10 @@ function writeCommandeInConsole($cmd) {
 function toggleWriteButton() {
   if ($selectedFile == null) {
     $("#writeButton").addClass("inactive");
+    $(".removeFile").addClass("inactive");
   } else {
     $("#writeButton").removeClass("inactive");
+    $(".removeFile").removeClass("inactive");
   }
 }
+toggleWriteButton();

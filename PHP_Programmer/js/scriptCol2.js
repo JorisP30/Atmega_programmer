@@ -10,12 +10,19 @@ $(function(){
       $selectFile.removeClass("fileLoad");
     });
   }
-
-  $('#id_selectAtm').change(function(){
-    var atm = $(this).val();
+  function loadFile() {
+    var atm = getSelectedAtm();
     printAtmFile(atm);
     $selectedFile = null;
     toggleWriteButton();
+  }
+
+  $('#id_selectAtm').change(function(){
+    loadFile();
   });
   printAtmFile(getSelectedAtm());
+
+  $(".refreshFile").click(function() {
+    loadFile();
+  });
 }); 

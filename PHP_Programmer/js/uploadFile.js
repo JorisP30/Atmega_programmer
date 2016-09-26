@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".reachFile").click(function() {
+	$(".addFile").click(function() {
 		$("#fileupload").click();
 	});
 	$("#fileupload").change(function() {

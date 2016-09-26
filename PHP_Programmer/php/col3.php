@@ -6,7 +6,7 @@
       read
     </div>
     <div commande="erase" url="<?php echo $urlErase; ?>" id="removeButton" class="suppressionButton button">
-      remove
+      erase
     </div>
     <div commande="write" id="writeButton" url="<?php echo $urlWrite; ?>" class="ecrireButton button inactive">
       write
