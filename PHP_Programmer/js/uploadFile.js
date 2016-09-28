@@ -6,11 +6,12 @@ $(document).ready(function(){
 		//$("#upload").submit();
 	});
 	$("#fileupload").fileupload({
-		dataType: 'json',
+        add: function(e, data) {
+          data.url = '/prog/php/upload.php?atm=' + getSelectedAtm();
+          data.submit();
+        },
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });
+            loadFile();
         }
 	});
 });
