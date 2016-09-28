@@ -5,6 +5,7 @@
   $urlRead = $urlBase."/php/read.php";
   $urlWrite = $urlBase."/php/write.php";
   $urlConfirmRemove = $urlBase."/php/confirmRemove.php";
+  $urlRemove = $urlBase."/php/removeFile.php";
   $urlBaseAtm = $urlBase."/atm";
   $urlReadAtmFile = $urlBase."/php/readatmfile.php";
   /* ATM */

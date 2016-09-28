@@ -7,7 +7,7 @@ $contentDiv =
 
 $overflowBody = "";
 
-var deletePopup = function() {
+var closePopup = function() {
   $("#"+$subDivId).remove();
   $("body").css("overflow", $overflowBody);
 }
@@ -26,7 +26,7 @@ function openPopup(elem) {
     $("#"+$contentDivId).click(function(e) {
       e.stopPropagation();
     });
-    $("#"+$subDivId).click(deletePopup);
+    $("#"+$subDivId).click(closePopup);
   });
 }
 
