@@ -8,6 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>IHM Programmateur</title>
+	<link rel="shortcut icon" href="content/icons/processor.png" />
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/popup.css">
 	
@@ -25,11 +26,13 @@
 		include("php/col2.php");
 		include("php/col3.php");
 	?>
+	<div id="jorisLogo"><img src="content/icons/joris.png"></div>
 	<script src="js/script.js"></script>
 	<script src="js/scriptCol1.js"></script>
 	<script src="js/scriptCol2.js"></script>
 	<script src="js/scriptCol3.js"></script>
 	<script src="js/uploadFile.js"></script>
+	<script src="js/dragDropFile.js"></script>
 </body>
 
 </html>

@@ -190,3 +190,14 @@ div.button:hover {
 .inactive.button:hover {
 	background-color: #986c6c !important;
 }
+
+div#jorisLogo {
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+	width: 22%;
+}
+div#jorisLogo img {
+	width: 100%;
+	opacity: 0.7;
+}
