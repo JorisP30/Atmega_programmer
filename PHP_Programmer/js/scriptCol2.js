@@ -25,4 +25,13 @@ $(function(){
   $(".refreshFile").click(function() {
     loadFile();
   });
+
+  $(".removeFile.button").click(function() {
+    if ($selectedFile == null) {
+      return;
+    }
+    $this = $(this);
+    $this.attr("data-popup-get", "file=" + $selectedFile.attr("absoluteFile"));
+    openPopup($this);
+  });
 }); 

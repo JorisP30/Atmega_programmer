@@ -2,7 +2,7 @@
   include_once("include.php");
 ?>
 <div class="col">
-    <div class="manageFile"><p class="addFile button">ADD</p><p class="refreshFile button">REFRESH</p><p class="removeFile button">REMOVE</p></div>
+    <div class="manageFile"><p class="addFile button">ADD</p><p class="refreshFile button">REFRESH</p><p class="removeFile button" data-popup="<?php echo $urlConfirmRemove;?>" data-popup-get="">REMOVE</p></div>
     <form id="upload" method="post" action="" enctype="multipart/form-data">
       <input id="fileupload" type="file" name="files[]" multiple>
       <input type="submit" value="Upload">

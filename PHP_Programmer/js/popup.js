@@ -1,0 +1,35 @@
+$subDivId = "subDiv";
+$contentDivId = "contentDiv";
+$subDiv = 
+  "<div id='"+ $subDivId +"' style='position:fixed; top:0px; left:0px; z-index:995; background-color:rgba(0,0,0,0.8); width:100%; height:100%'></div>";
+$contentDiv = 
+  "<div id='"+ $contentDivId +"' style='position:fixed; z-index:999; width:50%; top:10%; left:25%'></div>";
+
+$overflowBody = "";
+
+var deletePopup = function() {
+  $("#"+$subDivId).remove();
+  $("body").css("overflow", $overflowBody);
+}
+
+function openPopup(elem) {
+  $url = elem.attr("data-popup") + "?" + elem.attr("data-popup-get");
+  $.post($url, {},  function(data) {
+    $body = $("body");
+    $body .append($subDiv);
+    $("#"+$subDivId).append($contentDiv);
+    $("#"+$contentDivId).append(data);
+
+    $overflowBody = $body .css("overflow");
+    $body .css("overflow", "hidden");
+
+    $("#"+$contentDivId).click(function(e) {
+      e.stopPropagation();
+    });
+    $("#"+$subDivId).click(deletePopup);
+  });
+}
+
+$("[data-popup-auto]").click(function() {
+    openPopup($(this));
+});
