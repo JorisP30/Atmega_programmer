@@ -20,13 +20,14 @@
 </head>
 
 <body>
-
+<div class="progressUploadFile"></div>
 	<?php
 		include("php/col1.php");
 		include("php/col2.php");
 		include("php/col3.php");
 	?>
 	<div id="jorisLogo"><img src="content/icons/joris.png"></div>
+	<div id="uploadDD"><img src="content/icons/download.png"></div>
 	<script src="js/script.js"></script>
 	<script src="js/scriptCol1.js"></script>
 	<script src="js/scriptCol2.js"></script>

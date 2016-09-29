@@ -1,12 +1,14 @@
-/*$(document).on("dragenter", "body", function(e) {
+$divUploadDD = $("#uploadDD");
+$(document).on("dragenter", "body", function(e) {
   e.preventDefault();
+  $divUploadDD.show();
   return false;
 });
-$(document).on('dragover', 'body', function(e){
+$(document).on('dragleave', '#uploadDD', function(e) {
   e.preventDefault();
+  $divUploadDD.hide();
   return false;
 });
-$(document).on('dragleave', 'body', function(e) {
-  e.preventDefault();
-  return false;
-});*/
+$('#fileupload').bind('fileuploaddrop', function (e, data) {
+  $divUploadDD.hide();
+});

@@ -191,6 +191,8 @@ div.button:hover {
 	background-color: #986c6c !important;
 }
 
+/* OTHER */
+
 div#jorisLogo {
 	position: fixed;
 	bottom: 1%;
@@ -200,4 +202,32 @@ div#jorisLogo {
 div#jorisLogo img {
 	width: 100%;
 	opacity: 0.7;
+}
+
+div#uploadDD {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+	text-align: center;
+	z-index: 999;
+}
+div#uploadDD img {
+	margin-top: 2%;
+	opacity: 0.5;
+	height: 50%;
+	pointer-events: none;
+}
+
+div.progressUploadFile {
+	background-color: #3aa42a;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 5px;
+	display: none;
 }
