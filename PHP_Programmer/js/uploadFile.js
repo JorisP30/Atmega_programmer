@@ -15,8 +15,8 @@ $(document).ready(function(){
         done: function (e, data) {
             loadFile();
             setTimeout(function() {
-              $('.progressUploadFile').hide();
-            }, 3000);
+              $('.progressUploadFile').fadeOut(2000);
+            }, 500);
         }
 	});
 });
