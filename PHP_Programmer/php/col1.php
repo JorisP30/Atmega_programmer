@@ -10,6 +10,7 @@
           }
         ?>
       </select>
+      <img class="setting" src="<?php echo $urlIcons."settings.png"; ?>" data-popup="<?php echo $urlSettings;?>" data-popup-get="">
     </div>
     <div id="info_xxx" class="infoAtm">
       <ul>

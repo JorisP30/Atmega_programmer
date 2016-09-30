@@ -57,9 +57,20 @@ div.border {
 /* col 1 */
 div.selectAtm {
 	text-align: center;
+	padding: 4%;
 }
 div.selectAtm select {
-	width: 80%;
+	width: 75%;
+	vertical-align: middle;
+}
+.selectAtm .setting {
+	width: 17%;
+	max-height: 29px;
+	max-width: 29px;
+	vertical-align: middle;
+}
+.selectAtm .setting:hover {
+	opacity: 0.5;
 }
 
 div.infoAtm {
@@ -177,6 +188,9 @@ div.button {
 	text-transform: uppercase;
 	text-align: center;
 	cursor: pointer;
+}
+div.button:first-letter {
+	text-decoration: underline;
 }
 
 div.button:hover {
