@@ -6,13 +6,23 @@ function printAtmFile(atm) {
   $.post($selectFile.attr("readatmfile"), {atm : atm}, function (data) {
     $selectFile.html(data);
     $selectFile.removeClass("fileLoad");
+    if ($selectedFile == null) {
+      return;
+    }
+    console.log($selectedFile);
+    $oldSelectedFile = $("[absoluteFile='"+$selectedFile.attr("absoluteFile")+"']");
+    if (!$oldSelectedFile.length) {
+      $selectedFile = null;
+    } else {
+      $selectedFile = $oldSelectedFile;
+      $selectedFile.addClass("selected");
+    }
+    toggleWriteButton();
   });
 }
 function loadFile() {
   var atm = getSelectedAtm();
   printAtmFile(atm);
-  $selectedFile = null;
-  toggleWriteButton();
 }
 
 $(function(){
@@ -34,3 +44,19 @@ $(function(){
     openPopup($this);
   });
 }); 
+
+$(".selectFile").click(function(event) {
+    $this = $(event.target);
+    if (!$this[0].hasAttribute("absoluteFile")) {
+      return;
+    }
+    if ($this.hasClass("selected")) {
+      $this.removeClass("selected");
+      $selectedFile = null;
+    } else {
+      $(".selected").removeClass("selected");
+      $this.addClass("selected");
+      $selectedFile = $this;
+    }
+    toggleWriteButton();
+  });

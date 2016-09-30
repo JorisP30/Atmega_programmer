@@ -16,4 +16,10 @@ $(document).ready(function(){
 	
 	hideAllAtmInfo();
 	showAtmInfo(selectAtm.options[selectAtm.selectedIndex].value);
+
+	$("img.setting").click(function() {
+	    $this = $(this);
+	    $this.attr("data-popup-get", "atm=" + getSelectedAtm());
+	    openPopup($this);
+	  });
 });
