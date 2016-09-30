@@ -11,6 +11,7 @@
 	<link rel="shortcut icon" href="content/icons/processor.png" />
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/popup.css">
+      <link rel="stylesheet" href="css/settings.css">
 	
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jQuery-File-Upload-9.12.5/js/vendor/jquery.ui.widget.js"></script>

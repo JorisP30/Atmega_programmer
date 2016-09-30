@@ -1,0 +1,86 @@
+div#settings {
+  font-size: 0px;
+  background-color: #4e6687;
+  color: white;
+}
+div#settings > div {
+  font-size: 16px;
+  display: inline-block;
+  margin: 1%;
+}
+
+/* list */
+.atmList {
+  width: 28%;
+  padding-top: 2%;
+}
+.manageAtmList {
+  font-size: 0px;
+}
+.manageAtmList p {
+  display: inline-block;
+  width: 44%;
+  font-size: 16px;
+  margin: 0px 3%;
+  height: 100%;
+  padding: 5% 0%;
+  box-shadow: 0px 0px 3px 3px #364860;
+  vertical-align: middle;
+}
+.manageAtmList p.add {
+  background-color: #3aa42a;
+}
+.manageAtmList p.remove {
+  background-color: #cf2b30;
+}
+.manageAtmList img {
+  height: 25px;
+  vertical-align: middle;
+}
+
+/* info */
+div.amtSettings {
+  width: 68%;
+  vertical-align: top;
+  text-align: left;
+  height: 100%;
+}
+.amtSettings > form {
+  margin: 0px;
+  padding: 0px;
+}
+div.atmSInfo {
+  padding: 2%;
+}
+textarea.atmInfo {  
+  height: 250px;
+  resize: none;
+}
+.inputatm {
+  width: 94%;
+  padding: 3%;
+  border: 0px;
+  margin: 0px;
+}
+input#atmName {
+  margin-bottom: 2%;
+}
+
+/* commande */
+
+/* footer */
+.atmSFooter {
+  display: block;
+  font-size: 0px;
+  width: 100%;
+}
+div.atmSFooter p.popupButton {
+  display: inline-block;
+  width: 40%;
+  font-size: 16px;
+  margin: 2.5%;
+  box-shadow: 0px 0px 4px 4px #364860;
+}
+.atmSFooter {
+  background-color: #4e6687;
+}
