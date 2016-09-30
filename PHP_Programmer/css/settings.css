@@ -37,6 +37,29 @@ div#settings > div {
   height: 25px;
   vertical-align: middle;
 }
+.manageAtmList .add:hover {
+  background-color: #5da453;
+}
+.manageAtmList .remove:hover {
+  background-color: rgb(206, 66, 71);
+}
+
+.atmList .list {
+  margin-top: 10%;
+}
+
+.atmList .list p {
+  cursor: default;
+  padding: 5% 0px;
+  margin: 0px;
+}
+.atmList .list p:hover {
+  background-color: #6b89b1;
+}
+.atmList .list p.selected {
+  background-color: #6b89b1;
+}
+
 
 /* info */
 div.amtSettings {

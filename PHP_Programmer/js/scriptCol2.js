@@ -9,7 +9,6 @@ function printAtmFile(atm) {
     if ($selectedFile == null) {
       return;
     }
-    console.log($selectedFile);
     $oldSelectedFile = $("[absoluteFile='"+$selectedFile.attr("absoluteFile")+"']");
     if (!$oldSelectedFile.length) {
       $selectedFile = null;

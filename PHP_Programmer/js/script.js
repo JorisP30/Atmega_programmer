@@ -5,6 +5,9 @@ var actionButtons = ["readButton", "removeButton"];
 
 function getSelectedAtm() {
 	var selectAtm = document.getElementById("id_selectAtm");
+      if (selectAtm.options.length == 0) {
+        return null;
+      }
 	var atm = selectAtm.options[selectAtm.selectedIndex].value;
 	return atm;
 }

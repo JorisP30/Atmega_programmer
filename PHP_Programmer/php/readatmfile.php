@@ -8,7 +8,9 @@
   $files = scandir($dir);
   $rep = "";
   for ($i = 2; $i < count($files); ++$i) {
-    $rep .= "<p absoluteFile='".$urlAtmDir."/".$files[$i]."'>".$files[$i]."</p>";
+    if ($files[$i][0] != '.') {
+      $rep .= "<p absoluteFile='".$urlAtmDir."/".$files[$i]."'>".$files[$i]."</p>";
+    }
   }
   echo $rep;
 ?>

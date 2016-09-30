@@ -35,6 +35,7 @@
 	<script src="js/scriptCol3.js"></script>
 	<script src="js/uploadFile.js"></script>
 	<script src="js/dragDropFile.js"></script>
+	<script src="js/scriptEnd.js"></script>
 </body>
 
 </html>

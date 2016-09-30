@@ -1,21 +1,26 @@
-$(document).ready(function(){
-	var selectAtm = document.getElementById("id_selectAtm");
-	
-	$('#id_selectAtm').change(function(){
-		hideAllAtmInfo();
-		showAtmInfo($(this).val());
+function takeAtmInfo(atm) {
+	$.post("/prog/php/atmInfo.php?atm="+atm, function(data) {
+		$(".infoAtm").html(data);
 	});
-	
-	function hideAllAtmInfo() {
-		$(".infoAtm").hide();
-	}
-	
-	function showAtmInfo(atm) {
-		$("#info_" + atm).show();
-	}
-	
-	hideAllAtmInfo();
-	showAtmInfo(selectAtm.options[selectAtm.selectedIndex].value);
+}
+
+function takeAtm() {
+	$.ajax({
+		type: 'POST',
+		url: "/prog/php/getAtm.php?format=option",
+		async: false,
+		success: function(data) {
+			$("#id_selectAtm").html(data);
+		}
+	});
+}
+
+$(document).ready(function(){
+	takeAtm();
+	$('#id_selectAtm').change(function(){
+		takeAtmInfo(getSelectedAtm());
+	});
+	takeAtmInfo(getSelectedAtm());
 
 	$("img.setting").click(function() {
 	    $this = $(this);

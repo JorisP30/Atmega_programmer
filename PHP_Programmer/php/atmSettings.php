@@ -1,3 +1,6 @@
+<?php
+include_once("include.php");
+?>
 <div>
   <div id="settings">
     <div class="atmList">
@@ -6,14 +9,12 @@
           <p class="remove"><img src="/prog/content/icons/trash.png"></p>
         </div>
         <div class="list">
-          <p>xxx</p>
-          <p>yyy</p>
-          <p>zzz</p>
         </div>
     </div>
     <div class="amtSettings">
-      <form method="post" action="form.php">
+      <form method="post" action="<?php echo $urlSaveAtm;?>">
         <div class="atmSInfo">
+          <input type="text" name='atm' hidden>
           <input id="atmName" class="inputatm" name="name" placeholder="Name">
           <textarea class="atmInfo inputatm" name="info" placeholder="Information"></textarea>
         </div>
@@ -26,3 +27,4 @@
     <p class="popupButton confirm">Confirm</p>
   </div>
 </div>
+<script src="<?php echo $urlJs?>settings.js">
