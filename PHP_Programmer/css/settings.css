@@ -8,6 +8,9 @@ div#settings > div {
   display: inline-block;
   margin: 1%;
 }
+p.selected {
+  background-color: #2b4465;
+}
 
 /* list */
 .atmList {
@@ -60,9 +63,6 @@ div#settings > div {
 .atmList .list p:hover {
   background-color: #6b89b1;
 }
-.atmList .list p.selected {
-  background-color: #6b89b1;
-}
 
 /* col2 */
 div.amtSettings {
@@ -84,9 +84,6 @@ div.amtSettings {
   cursor: pointer;
 }
 .atmScmd p:hover {
-  background-color: #6b89b1;
-}
-.atmScmd p.selected {
   background-color: #6b89b1;
 }
 .amtSettings > form {
