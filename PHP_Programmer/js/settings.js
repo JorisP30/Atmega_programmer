@@ -51,6 +51,7 @@ $(function(){
     $(".amtSettings input[name='name']").val("");
     $(".amtSettings textarea").val("");
     $("input[name='atm']").attr("value", "");
+    $(".atmSCommand input").val("");
   });
 
   $(".popupButton.cancel").click(closePopup);
@@ -67,8 +68,14 @@ $(function(){
       }
     });
   });
-  $(".amtSettings").keypress(function(e) {
+  $(".amtSettings").keydown(function(e) {
     e.stopPropagation();
+  });
+
+  $(".atmSCommand input").keyup(function() {
+    if (!$.isNumeric(this.value) && this.value != "") {
+      notification($inputNumberError, 10);
+    }
   });
 
   /* ONGLET */

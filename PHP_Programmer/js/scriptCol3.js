@@ -11,6 +11,12 @@ function setArgsForAction() {
   });
 }
 
+function checkArgumentMissingError($button) {
+  if ($button.attr("args") == "") {
+    notification($argumentMissingError, 10);
+  }
+}
+
 $(function(){
   
   function sendAction(url, arg) {
@@ -33,29 +39,28 @@ $(function(){
       $("#" + value).removeClass("inactive");
     });
   }
-  function writeButton($this) {
-    if ($("#writeButton").hasClass("inactive")) {
+
+  function buttonAction($this) {
+    if ($this.hasClass("inactive")) {
       return;
     }
-    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectedFile.attr("absoluteFile"));
+    checkArgumentMissingError($this);
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
     setActionButtonInactive();
-    sendAction($this.attr("url"), {file : $selectedFile.attr("absoluteFile")});
+    sendAction($this.attr("url"), {});
+  }
+  function writeButton($this) {
+    if ($this.hasClass("inactive")) {
+      notification($selectedFileError, 10);
+      return;
+    }
+    buttonAction($this);
   }
   function readButton($this) {
-    if ($("#readButton").hasClass("inactive")) {
-      return;
-    }
-    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
-    setActionButtonInactive();
-    sendAction($this.attr("url"), {});
+    buttonAction($this);
   }
   function eraseButton($this) {
-    if ($("#removeButton").hasClass("inactive")) {
-      return;
-    }
-    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
-    setActionButtonInactive();
-    sendAction($this.attr("url"), {});
+    buttonAction($this);
   }
 
   $("#writeButton").click(function() {
@@ -73,15 +78,18 @@ $(function(){
   });
   setArgsForAction();
 
-  $("body").keypress(function(event) {
+  $(document).bind('keydown', function(event) {
+    if (!event.originalEvent.shiftKey) {
+      return;
+    }
     switch (event.which) {
-      case 114:
+      case 82:
       readButton($("#readButton"));
       break;
-      case 101:
+      case 69:
       eraseButton($("#removeButton"));
       break;
-      case 119:
+      case 87:
       writeButton($("#writeButton"));
       break;
       default:

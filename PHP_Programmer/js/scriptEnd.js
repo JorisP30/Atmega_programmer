@@ -1,6 +1,8 @@
 function refresh() {
   takeAtm();
-  $("#id_selectAtm").val($atmSelected.text());
+  if ($atmSelected != null) {
+    $("#id_selectAtm").val($atmSelected.text());
+  }
   takeAtmInfo(getSelectedAtm());
   loadFile();
   setArgsForAction();

@@ -12,7 +12,9 @@ function closeNotification(id) {
   });
 }
 
-function notification($content) {
+function notification($content, $animationTime) {
+  $animationTime = (typeof $animationTime === 'undefined') ? 5000 : $animationTime * 1000;
+
   let id = uniqId();
   $notificationContentDiv = 
   "<div id='"+id+"' class='"+ $contentDivclass +"' style='position:fixed; z-index:999;'></div>";
@@ -27,7 +29,7 @@ function notification($content) {
   }, 1000);
   setTimeout(function() {
     closeNotification(id);
-  }, 5000);
+  }, $animationTime);
   $notification.click(function() {
     closeNotification(id);
   });

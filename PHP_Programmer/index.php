@@ -20,6 +20,7 @@
 	<script src="js/jQuery-File-Upload-9.12.5/js/jquery.fileupload.js"></script>
 	<script src="js/popup.js"></script>
 	<script src="js/notification.js"></script>
+	<script src="js/errorMessages.js"></script>
 </head>
 
 <body>

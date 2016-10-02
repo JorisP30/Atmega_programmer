@@ -36,6 +36,7 @@ $(function(){
 
   $(".removeFile.button").click(function() {
     if ($selectedFile == null) {
+      notification($selectedFileError, 10);
       return;
     }
     $this = $(this);
