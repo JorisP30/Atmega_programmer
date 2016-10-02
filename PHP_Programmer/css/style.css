@@ -62,6 +62,18 @@ div.selectAtm {
 div.selectAtm select {
 	width: 75%;
 	vertical-align: middle;
+	overflow: hidden;
+}
+#id_selectAtm option {
+	max-width: 75%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	overflow: hidden;
+}
+#id_selectAtm option:hover {
+	
+	background-color: #8e0c0c;
 }
 .selectAtm .setting {
 	width: 17%;

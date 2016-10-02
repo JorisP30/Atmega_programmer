@@ -1,12 +1,19 @@
 $atmSelected = null;
 
 function loadAtmForm() {
-  $(".amtSettings input[name='name']").val($atmSelected.html());
-  $.post("/prog/php/atmInfo.php?atm="+$atmSelected.html(),  function(data) {
+  $atm = $atmSelected.html();
+  $(".amtSettings input[name='name']").val($atm);
+  $.post("/prog/php/atmInfo.php?atm="+$atm,  function(data) {
     $(".amtSettings textarea").val(data);
   });
-  $("input[name='atm']").attr("value", $atmSelected.html());
-  console.log($("input[name='atm']"));
+  $("input[name='atm']").attr("value", $atm);
+  $.getJSON("/prog/php/atmArgs.php?atm=" + $atm, function(data) {
+    $.each(data, function(key, val) {
+      $("input[name='"+key+"']").val(val.value);
+    });
+  }).fail(function() {
+    $(".atmSCommand input").val("");
+  });
 }
 
 function takeAtmS() {
@@ -22,13 +29,19 @@ function takeAtmS() {
 
 $(function(){
   takeAtmS();
+  $(".atmList .list p").each(function() {
+    $this = $(this);
+    if ($this.text() == getSelectedAtm()) {
+      $atmSelected = $this;
+      $this.addClass("selected");
+    }
+  });
   $(".atmList .list p").click(function() {
     $(".atmList .list p.selected").removeClass("selected");
     $(this).addClass("selected");
     $atmSelected = $(".atmList .list p.selected");
     loadAtmForm();
   });
-  $(".atmList .list p").first().addClass("selected");
   $atmSelected = $(".atmList .list p.selected");
   loadAtmForm();
 
@@ -53,5 +66,18 @@ $(function(){
         closePopup();
       }
     });
+  });
+  $(".amtSettings").keypress(function(e) {
+    e.stopPropagation();
+  });
+
+  /* ONGLET */
+  $(".atmScmd p").click(function() {
+    $toHide = $(".atmScmd p.selected").attr("data-bind");
+    $("." + $toHide).hide();
+    $(".atmScmd p.selected").removeClass("selected");
+    $(this).addClass("selected");
+    $toShow = $(this).attr("data-bind");
+    $("." + $toShow).show();
   });
 });

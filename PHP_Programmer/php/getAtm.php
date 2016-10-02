@@ -9,7 +9,7 @@ $files = scandir($dir);
 $rep = "";
 for ($i = 2; $i < count($files); ++$i) {
   if ($files[$i][0] != '.') {
-    $rep .= "<".$format.">".$files[$i]."</".$format.">";
+    $rep .= "<".$format." title=\"".htmlspecialchars($files[$i], ENT_QUOTES)."\">".$files[$i]."</".$format.">";
   }
 }
 echo $rep;

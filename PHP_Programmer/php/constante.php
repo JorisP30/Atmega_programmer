@@ -14,9 +14,19 @@
   $absolutePathAtm = $_SERVER["DOCUMENT_ROOT"].$urlBaseAtm;
   $urlReadAtmFile = $urlBase."/php/readatmfile.php";
   $fileInfoAtm = ".info.html";
+  $fileArgsAtm = ".args.json";
 
   $urlIcons=$urlBase."/content/icons/";
   /* ATM */
-  $atmList = array("xxx", "yyy", "zzz");
-
+  $atmArgs = array(
+    "mem" => array(
+      "title" => "Cf cahier des charges", 
+      "name" => "-m", 
+      "value"=> ""), 
+    "nbWord" => array(
+      "title" => "Number of words", 
+      "name" => "-w", 
+      "value" => ""
+      )
+    );
 ?> 

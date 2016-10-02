@@ -1,3 +1,16 @@
+function setArgsForAction() {
+  $atm = getSelectedAtm();
+  $.getJSON("/prog/php/atmArgs.php?atm=" + $atm, function(data) {
+    $args = "";
+    $.each(data, function(key, val) {
+      $args += val.name + " " + val.value + " ";
+    });
+    $("div[args]").attr("args", $args);
+  }).fail(function() {
+    $("div[args]").attr("args", "");
+  });
+}
+
 $(function(){
   
   function sendAction(url, arg) {
@@ -24,7 +37,7 @@ $(function(){
     if ($("#writeButton").hasClass("inactive")) {
       return;
     }
-    writeCommandeInConsole($this.attr("commande") + " " + $selectedFile.attr("absoluteFile"));
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectedFile.attr("absoluteFile"));
     setActionButtonInactive();
     sendAction($this.attr("url"), {file : $selectedFile.attr("absoluteFile")});
   }
@@ -32,7 +45,7 @@ $(function(){
     if ($("#readButton").hasClass("inactive")) {
       return;
     }
-    writeCommandeInConsole($this.attr("commande"));
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
     setActionButtonInactive();
     sendAction($this.attr("url"), {});
   }
@@ -40,7 +53,7 @@ $(function(){
     if ($("#removeButton").hasClass("inactive")) {
       return;
     }
-    writeCommandeInConsole($this.attr("commande"));
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
     setActionButtonInactive();
     sendAction($this.attr("url"), {});
   }
@@ -54,6 +67,11 @@ $(function(){
   $("#removeButton").click(function() {
     eraseButton($(this));
   });
+
+  $('#id_selectAtm').change(function() {
+    setArgsForAction();
+  });
+  setArgsForAction();
 
   $("body").keypress(function(event) {
     switch (event.which) {
