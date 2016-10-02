@@ -45,7 +45,7 @@ $(function(){
       return;
     }
     checkArgumentMissingError($this);
-    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args"));
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + "");
     setActionButtonInactive();
     sendAction($this.attr("url"), {});
   }
@@ -54,7 +54,10 @@ $(function(){
       notification($selectedFileError, 10);
       return;
     }
-    buttonAction($this);
+    checkArgumentMissingError($this);
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectFile.text());
+    setActionButtonInactive();
+    sendAction($this.attr("url"), {});
   }
   function readButton($this) {
     buttonAction($this);
