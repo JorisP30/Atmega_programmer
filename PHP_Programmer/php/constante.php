@@ -20,7 +20,7 @@
   /* ATM */
   $atmArgs = array(
     "mem" => array(
-      "title" => "Cf cahier des charges", 
+      "title" => "Size of flash memory", 
       "name" => "-m", 
       "value"=> ""), 
     "nbWord" => array(

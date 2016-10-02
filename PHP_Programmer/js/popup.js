@@ -14,9 +14,9 @@ var closePopup = function() {
 
 function openPopup(elem) {
   $url = elem.attr("data-popup") + "?" + elem.attr("data-popup-get");
-  $.post($url, {},  function(data) {
-    $body = $("body");
-    $body .append($subDiv);
+  $body = $("body");
+  $body .append($subDiv);
+  $.post($url, {},  function(data) {  
     $("#"+$subDivId).append($contentDiv);
     $("#"+$contentDivId).append(data);
 

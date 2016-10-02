@@ -3,7 +3,9 @@ function setArgsForAction() {
   $.getJSON("/prog/php/atmArgs.php?atm=" + $atm, function(data) {
     $args = "";
     $.each(data, function(key, val) {
-      $args += val.name + " " + val.value + " ";
+      if (val.value != "") {
+        $args += val.name + " " + val.value + " ";
+      }
     });
     $("div[args]").attr("args", $args);
   }).fail(function() {

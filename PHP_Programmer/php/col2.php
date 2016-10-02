@@ -11,4 +11,5 @@
     </div>
     <div id="console" class="outputShell">
     </div>
+    <div id="author">G.Spaur &copy; 2016</div>
   </div> 
