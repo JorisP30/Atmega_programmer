@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : fctn_programmer.py
-#       Date : 24/09/2016
-#       File Version : 1.03
+#       Date : 02/10/2016
+#       File Version : 1.05
 #       Written by : JorisP30
 #       Function : fichier contenant les functions du programmer
 # ============================================================ #
@@ -45,12 +45,14 @@ def read_prg_mem_HB(octet_1 , adr_MSBy , adr_LSBy):
 	data_MSBy = spi.readbytes(1)
 	print("Data_MSBy : %s "   % data_MSBy)
 	print("Read program memory High Byte Done.")
+	return data_MSBy
 
 def read_prg_mem_LB(octet_1 , adr_MSBy , adr_LSBy):
 	spi.writebytes([octet_1 , adr_MSBy , adr_LSBy])
 	data_LSBy = spi.readbytes(1)
 	print("Data_LSBy : %s "  % data_LSBy)
 	print("Read program memory Low Byte Done.")
+	return data_LSBy
 
 def recup_infos_fichier(fich_txt):
 	fichier = open(fich_txt , "r")

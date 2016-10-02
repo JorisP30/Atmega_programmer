@@ -23,4 +23,4 @@ spi.max_speed_hz = 50000
 fctn_programmer.chip_erase(0xAC , 0x80 , 0x00 , 0x00)
 
 spi.close()
-print("Lecture mem flash Done.")
+print("Lecture Chip Erase Done.")

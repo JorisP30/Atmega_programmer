@@ -1,7 +1,7 @@
 # ============================================================ #
 #       Filename : lecture_spi.py
-#       Date : 24/09/2016
-#       File Version : 1.03
+#       Date : 02/10/2016
+#       File Version : 1.05
 #       Written by : JorisP30
 #       Function : Lecture des donnees de la memoire flash dans l'Atmega
 # ============================================================ #
@@ -44,6 +44,7 @@ PRG_H = 0xAC
 PRG_L = 0x53
 RPM_H = 0x28
 RPM_L = 0x20
+recup_mem_flash = "data_mem_flash.txt"
 # ================
 
 fctn_programmer.off_on_rst(pin_reset) # 
@@ -53,13 +54,17 @@ fctn_programmer.prgm_enable(PRG_H , PRG_L)
 print("Attente suite")
 input()
 
+fichier = open(recup_mem_flash , "w")
+
 for i in range(0 , mem):
 	adr_MSBy = i & masque    	# Recupere @Pfort sur 16 bits
         adr_MSBy  = adr_MSBy >> 8  	# Decalage pour @PFort sur 8 bits
         adr_LSBy = i & 255       	# Masque pour @PFaible sur 8 bits
 	print("@ : %s %s " % (hex( adr_MSBy) ,hex( adr_LSBy) ))
-	fctn_programmer.read_prg_mem_LB(RPM_L , adr_MSBy , adr_LSBy)
-	fctn_programmer.read_prg_mem_HB(RPM_H , adr_MSBy , adr_LSBy)
+	data_LSBy = fctn_programmer.read_prg_mem_LB(RPM_L , adr_MSBy , adr_LSBy)
+	data_MSBy = fctn_programmer.read_prg_mem_HB(RPM_H , adr_MSBy , adr_LSBy)
+	fichier.write(" %s %s : %s %s \n" %(hex(adr_MSBy) ,hex(adr_LSBy) , data_MSBy , data_LSBy)) # Fichier de la memoire flash
 
 spi.close()
+fichier.close()
 print("Lecture mem flash Done.")
