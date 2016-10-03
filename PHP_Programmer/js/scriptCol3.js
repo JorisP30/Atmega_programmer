@@ -57,7 +57,7 @@ $(function(){
       return;
     }
     checkArgumentMissingError($this);
-    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectFile.text());
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectedFile.attr("absoluteFile"));
     setActionButtonInactive();
     sendAction($this.attr("url"), {});
   }

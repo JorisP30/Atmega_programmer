@@ -45,6 +45,16 @@ $(function(){
   });
 }); 
 
+$(".selectFile").dblclick(function(event) {
+    $this = $(event.target);
+    if (!$this[0].hasAttribute("absoluteFile")) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    window.open($this.attr("absoluteFile"), "_blank");
+});
+
 $(".selectFile").click(function(event) {
     $this = $(event.target);
     if (!$this[0].hasAttribute("absoluteFile")) {
@@ -59,4 +69,4 @@ $(".selectFile").click(function(event) {
       $selectedFile = $this;
     }
     toggleWriteButton();
-  });
+});
