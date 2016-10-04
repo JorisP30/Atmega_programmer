@@ -64,9 +64,18 @@ $(".selectFile").click(function(event) {
       $this.removeClass("selected");
       $selectedFile = null;
     } else {
-      $(".selected").removeClass("selected");
+      $("p[absoluteFile].selected").removeClass("selected");
       $this.addClass("selected");
       $selectedFile = $this;
     }
     toggleWriteButton();
+});
+$("#selectFileOnglet p").click(function(event) {
+  $dataToHide = $("#selectFileOnglet .selected").attr("data-bind");
+  $("#selectFileOnglet .selected").removeClass("selected");
+  $($dataToHide).hide();
+  $this = $(this);
+  $this.addClass("selected");
+  $dataToSow = $this.attr("data-bind");
+  $($dataToSow).show();
 });

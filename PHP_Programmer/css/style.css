@@ -149,40 +149,74 @@ form#upload {
 	display: none;
 }
 
-div.selectFile {
+div.FileListing {
 	padding: 0px;
 	height: 44%;
 	overflow: auto;
 	position: relative;
+	font-size: 0px;
 }
-div.selectFile.fileLoad {
+div.FileListing > div {
+	padding: 0px;
+	margin: 0px;
+	box-shadow: 0px 0px 0px 0px;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 16px;
+}
+
+div.fileView {
+	width: 90%;
+}
+div.fileView.fileLoad {
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
-div.selectFile p {
+div.fileView p {
 	cursor: default;
 	margin: 0px;
 	padding:5px;
 	position: relative;
 }
-div.selectFile p:nth-child(2n) {
+div.fileView p:nth-child(2n) {
 	background-color: #d8d8d8;
 }
-div.selectFile p:hover {
+div.fileView p:hover {
 	background-color: #8898b3;
 }
-div.selectFile p.selected {
+div.fileView p.selected {
 	background-color: #8e0c0c;
 	color: white;
 }
-.selectFile span:nth-child(2n) {
-	background-color: #d8d8d8;
-}
-.selectFile p span {
+.fileView p span {
 	text-align: right;
 	position: absolute;
 	right: 2%;
-	z-index: 2;
+}
+#selectFileOnglet {
+	width: 10%;
+	height: 100%;
+	text-align: center;
+}
+#selectFileOnglet p {
+	margin: 0px;
+	height: 50%;
+	width: 100%;
+	text-align: center;
+	line-height: 17vh;
+	background-color: #6c7c92;
+	color: white;
+	cursor: pointer;
+	box-shadow: 0px 0px 2px 2px #243040 inset;
+}
+#selectFileOnglet p:hover {
+	background-color: #b0b7c0;
+	color: white;
+}
+#selectFileOnglet p.selected {
+	background-color: white;
+	color: black;
+	box-shadow: 0px 0px 0px 0px;
 }
 
 div.outputShell {

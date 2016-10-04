@@ -7,7 +7,10 @@
       <input id="fileupload" type="file" name="files[]" multiple>
       <input type="submit" value="Upload">
     </form>
-    <div class="selectFile" readatmfile="<?php echo $urlReadAtmFile; ?>">
+    <div class="FileListing">
+      <div id="selectFileOnglet"><p class="selected" data-bind=".selectFile">Files</p><p data-bind=".readFile">Read</p></div>
+      <div class="selectFile fileView" readatmfile="<?php echo $urlReadAtmFile; ?>"></div>
+      <div class="readFile fileView" hidden></div>
     </div>
     <div id="console" class="outputShell">
     </div>
