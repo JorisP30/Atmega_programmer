@@ -14,7 +14,7 @@ $(document).ready(function(){
         },
         done: function (e, data) {
             $file = data.files[data.files.length - 1].name;
-            $p = $("</p>").attr("absoluteFile", "/prog/atm/" + getSelectedAtm() + "/" + $file);
+            $p = $("</p>").attr("absoluteFile", "/prog/atm/" + getSelectedAtm() + "/files/" + $file);
             $selectedFile = $p;
             loadFile();
             setTimeout(function() {

@@ -1,7 +1,6 @@
 $selectFile = $(".selectFile");
 
 function printAtmFile(atm, elem) {
-  console.log(elem);
   $(elem).addClass("fileLoad");
   $(elem).html("");
   $.post($(elem).attr("readatmfile"), {atm: atm}, function (data) {
