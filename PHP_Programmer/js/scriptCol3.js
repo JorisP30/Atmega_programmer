@@ -21,10 +21,13 @@ function checkArgumentMissingError($button) {
 
 $(function(){
   
-  function sendAction(url, arg) {
+  function sendAction(url, arg, functionEnd) {
     $.post(url, arg, function (data) {
       writeInConsole(data);
       setActionButtonActive();
+      if (functionEnd != undefined) {
+        functionEnd();
+      }
     });
   }
   
@@ -49,7 +52,7 @@ $(function(){
     checkArgumentMissingError($this);
     writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + "");
     setActionButtonInactive();
-    sendAction($this.attr("url"), {});
+    sendAction($this.attr("url"), {atm: getSelectedAtm()});
   }
   function writeButton($this) {
     if ($this.hasClass("inactive")) {
@@ -62,7 +65,15 @@ $(function(){
     sendAction($this.attr("url"), {});
   }
   function readButton($this) {
-    buttonAction($this);
+    if ($this.hasClass("inactive")) {
+      return;
+    }
+    checkArgumentMissingError($this);
+    writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + "");
+    setActionButtonInactive();
+    sendAction($this.attr("url"), {atm: getSelectedAtm()}, function() {
+      loadFile();
+    });
   }
   function eraseButton($this) {
     buttonAction($this);
