@@ -8,9 +8,9 @@
       <input type="submit" value="Upload">
     </form>
     <div class="FileListing">
-      <div id="selectFileOnglet"><p class="selected" data-bind=".selectFile">Files</p><p data-bind=".readFile">Read</p></div>
-      <div class="selectFile fileView" readatmfile="<?php echo $urlReadAtmFile; ?>"></div>
-      <div class="readFile fileView" hidden></div>
+      <div id="selectFileOnglet"><p class="selected" data-bind="#atmFileFile">Files</p><p data-bind="#atmReadFile">Read</p></div>
+      <div id="atmFileFile" class="selectFile fileView" readatmfile="<?php echo $urlReadAtmFile; ?>"></div>
+      <div id="atmReadFile" class="selectFile fileView" readatmfile="<?php echo $urlReadAtmRead; ?>" style="display: none"></div>
     </div>
     <div id="console" class="outputShell">
     </div>

@@ -15,7 +15,7 @@
       if (!valideStr($filename)) {
         exit;
       }
-      $absolFile = $absolutePathAtm."/".$atm."/".$value;
+      $absolFile = $absolutePathAtm."/".$atm."/files/".$value;
       move_uploaded_file($_FILES['files']['tmp_name'][$k], $absolFile);
     }
   }

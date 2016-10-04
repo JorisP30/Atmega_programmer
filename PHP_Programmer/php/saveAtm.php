@@ -4,13 +4,17 @@ include_once("include.php");
 if (empty($_POST["name"]) || empty($_POST["info"])) {
   exit;
 }
+$atmPath = $absolutePathAtm."/".$_POST["name"];
 if (empty($_POST["atm"])) {
-  mkdir($absolutePathAtm."/".$_POST["name"]);
-  echo "création : ".$absolutePathAtm."/".$_POST["name"];
+  mkdir($atmPath);
+  foreach ($atmFolders as $value) {
+    mkdir($atmPath."/".$value);
+  }
+  echo "création : ".$atmPath;
 } else {
-  rename($absolutePathAtm."/".$_POST["atm"], $absolutePathAtm."/".$_POST["name"]);
+  rename($absolutePathAtm."/".$_POST["atm"], $atmPath);
 }
-file_put_contents($absolutePathAtm."/".$_POST["name"]."/".$fileInfoAtm, trim($_POST["info"]));
+file_put_contents($atmPath."/".$fileInfoAtm, trim($_POST["info"]));
 
 $postArray = $_POST;
 $atm = $_POST["name"];

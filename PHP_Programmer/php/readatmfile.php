@@ -1,9 +1,13 @@
 <?php
-  include_once("constante.php");
+  include_once("include.php");
+  $folder = "files";
   if (!isset($_POST["atm"]) || empty($_POST["atm"])) {
     exit;
   }
-  $urlAtmDir = $urlBaseAtm."/".$_POST["atm"];
+  if (!empty($_GET["folder"]) && valideStr($_GET["folder"])) {
+    $folder = $_GET["folder"];
+  }
+  $urlAtmDir = $urlBaseAtm."/".$_POST["atm"]."/".$folder;
   $dir = $_SERVER["DOCUMENT_ROOT"].$urlAtmDir;
   $files = scandir($dir);
   $rep = "";

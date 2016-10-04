@@ -1,11 +1,12 @@
 $selectFile = $(".selectFile");
 
-function printAtmFile(atm) {
-  $selectFile.addClass("fileLoad");
-  $selectFile.html("");
-  $.post($selectFile.attr("readatmfile"), {atm : atm}, function (data) {
-    $selectFile.html(data);
-    $selectFile.removeClass("fileLoad");
+function printAtmFile(atm, elem) {
+  console.log(elem);
+  $(elem).addClass("fileLoad");
+  $(elem).html("");
+  $.post($(elem).attr("readatmfile"), {atm: atm}, function (data) {
+    $(elem).html(data);
+    $(elem).removeClass("fileLoad");
     if ($selectedFile == null) {
       return;
     }
@@ -21,14 +22,16 @@ function printAtmFile(atm) {
 }
 function loadFile() {
   var atm = getSelectedAtm();
-  printAtmFile(atm);
+  $selectFile.each(function() {
+    printAtmFile(atm, this);
+  });
 }
 
 $(function(){
   $('#id_selectAtm').change(function(){
     loadFile();
   });
-  printAtmFile(getSelectedAtm());
+  loadFile();
 
   $(".refreshFile").click(function() {
     loadFile();

@@ -12,9 +12,11 @@
   $urlBaseAtm = $urlBase."/atm";
 
   $absolutePathAtm = $_SERVER["DOCUMENT_ROOT"].$urlBaseAtm;
-  $urlReadAtmFile = $urlBase."/php/readatmfile.php";
+  $urlReadAtmFile = $urlBase."/php/readatmfile.php?folder=files";
+  $urlReadAtmRead = $urlBase."/php/readatmfile.php?folder=read";
   $fileInfoAtm = ".info.html";
   $fileArgsAtm = ".args.json";
+  $atmFolders = array("files", "read");
 
   $urlIcons=$urlBase."/content/icons/";
   /* ATM */
