@@ -152,7 +152,7 @@ form#upload {
 div.FileListing {
 	padding: 0px;
 	height: 44%;
-	overflow: auto;
+	overflow: hidden;
 	position: relative;
 	font-size: 0px;
 }
@@ -167,6 +167,8 @@ div.FileListing > div {
 
 div.fileView {
 	width: 90%;
+	overflow-y: auto;
+	height: 100%;
 }
 div.fileView.fileLoad {
 	background-color: rgba(255, 255, 255, 0.5);
@@ -207,7 +209,7 @@ div.fileView p.selected {
 	background-color: #6c7c92;
 	color: white;
 	cursor: pointer;
-	box-shadow: 0px 0px 2px 2px #243040 inset;
+	box-shadow: -1px 1px 3px 3px #243040 inset;
 }
 #selectFileOnglet p:hover {
 	background-color: #b0b7c0;
