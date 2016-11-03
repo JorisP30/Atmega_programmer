@@ -1,5 +1,5 @@
 function takeAtmInfo(atm) {
-	$.post("/prog/php/atmInfo.php?atm="+atm, function(data) {
+	$.post("/php/atmInfo.php?atm="+atm, function(data) {
 		$(".infoAtm").html(data);
 	});
 }
@@ -7,7 +7,7 @@ function takeAtmInfo(atm) {
 function takeAtm() {
 	$.ajax({
 		type: 'POST',
-		url: "/prog/php/getAtm.php?format=option",
+		url: "/php/getAtm.php?format=option",
 		async: false,
 		success: function(data) {
 			$("#id_selectAtm").html(data);

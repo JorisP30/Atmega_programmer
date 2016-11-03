@@ -1,6 +1,6 @@
 function setArgsForAction() {
   $atm = getSelectedAtm();
-  $.getJSON("/prog/php/atmArgs.php?atm=" + $atm, function(data) {
+  $.getJSON("/php/atmArgs.php?atm=" + $atm, function(data) {
     $args = "";
     $.each(data, function(key, val) {
       if (val.value != "") {

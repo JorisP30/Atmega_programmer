@@ -3,11 +3,11 @@ $atmSelected = null;
 function loadAtmForm() {
   $atm = $atmSelected.html();
   $(".amtSettings input[name='name']").val($atm);
-  $.post("/prog/php/atmInfo.php?atm="+$atm,  function(data) {
+  $.post("/php/atmInfo.php?atm="+$atm,  function(data) {
     $(".amtSettings textarea").val(data);
   });
   $("input[name='atm']").attr("value", $atm);
-  $.getJSON("/prog/php/atmArgs.php?atm=" + $atm, function(data) {
+  $.getJSON("/php/atmArgs.php?atm=" + $atm, function(data) {
     $.each(data, function(key, val) {
       $("input[name='"+key+"']").val(val.value);
     });
@@ -19,7 +19,7 @@ function loadAtmForm() {
 function takeAtmS() {
   $.ajax({
       type: 'POST',
-      url: "/prog/php/getAtm.php?format=p",
+      url: "/php/getAtm.php?format=p",
       async: false,
       success: function(data) {
         $(".atmList .list").html(data);

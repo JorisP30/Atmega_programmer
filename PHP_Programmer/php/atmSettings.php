@@ -10,8 +10,8 @@ foreach ($atmArgs as $key => $value) {
   <div id="settings">
     <div class="atmList">
         <div class="manageAtmList">
-          <p class="add"><img src="/prog/content/icons/add.png"></p>
-          <p class="remove"><img src="/prog/content/icons/trash.png"></p>
+          <p class="add"><img src="/content/icons/add.png"></p>
+          <p class="remove"><img src="/content/icons/trash.png"></p>
         </div>
         <div class="list">
         </div>

@@ -4,7 +4,7 @@ $(document).ready(function(){
 	});
 	$("#fileupload").fileupload({
         add: function(e, data) {
-          data.url = '/prog/php/upload.php?atm=' + getSelectedAtm();
+          data.url = '/php/upload.php?atm=' + getSelectedAtm();
           data.submit();
         },
         progressall: function(e, data) {
