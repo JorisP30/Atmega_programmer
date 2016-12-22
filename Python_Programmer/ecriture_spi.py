@@ -21,13 +21,10 @@ import fctn_programmer # Fonctions
  #       print(sys.argv[i])      # Affichage des Arguments
 
 
-mem = sys.argv[1]
-nb_mot_page = sys.argv[2]
+mem = int( sys.argv[1])
+print(type(mem))
+nb_mot_page = int( sys.argv[2])
 fich_txt = sys.argv[3]
-#PRG_L = sys.argv[4]
-#RPM_H = sys.argv[5]
-#RPM_L = sys.argv[6]
-#WPMP = sys.argrv[7]
 
 # == INITIALISATION SPI GPIO ==
 spi=spidev.SpiDev() # Creation de l'objet SPi
@@ -37,11 +34,11 @@ spi.max_speed_hz = 50000
 
 # == Constantes ==
 pin_reset = 12  # Pin RAZ atmega
-mem = 8192  #Memoire flash = 8 kWords = 8192
+#mem = 8192  #Memoire flash = 8 kWords = 8192
 masque = 0b1111111100000000
 pause = 0.1
-fich_txt = "prog.rom"
-nb_mot_page = 64
+#fich_txt = "prog.rom"
+#nb_mot_page = 64
 high = 1
 low = 0
 
@@ -55,20 +52,24 @@ WPMP = 0x4C
 
 fctn_programmer.off_on_rst(pin_reset) # 
 print("Attente suite")
-input()
+#input()
+time.sleep(1)
 
 fctn_programmer.prgm_enable(PRG_H , PRG_L)
 print("Attente suite")
-input()
+#input()
+time.sleep(1)
 
 fctn_programmer.chip_erase(0xAC , 0x80 , 0x00 , 0x00)
 print("Attente suite")
-input()
+#input()
+time.sleep(1)
 
-nb_page_complete , reste_page , nb_page_totale = fctn_programmer.recup_infos_fichier(fich_txt)
+nb_page_complete , reste_page , nb_page_totale = fctn_programmer.recup_infos_fichier(fich_txt , nb_mot_page)
 print(nb_page_complete , reste_page , nb_page_totale)
 print("Attente suite")
-input()
+#input()
+time.sleep(1)
 
 fctn_programmer.progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page , nb_page_totale , LPMP_L , LPMP_H , WPMP)
 

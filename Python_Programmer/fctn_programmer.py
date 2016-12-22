@@ -54,14 +54,14 @@ def read_prg_mem_LB(octet_1 , adr_MSBy , adr_LSBy):
 	print("Read program memory Low Byte Done.")
 	return data_LSBy
 
-def recup_infos_fichier(fich_txt):
+def recup_infos_fichier(fich_txt , nb_mot_page ):
 	fichier = open(fich_txt , "r")
 	nb_ligne = 0
 	while fichier.readline():
 		nb_ligne += 1
 	
-	reste_page = nb_ligne % 64
-	nb_page_complete = nb_ligne / 64
+	reste_page = nb_ligne % nb_mot_page
+	nb_page_complete = nb_ligne / nb_mot_page
 	nb_page_totale = nb_page_complete + 1
 	print("Nb de ligne du fichier : %d " % nb_ligne)
 	print("Nb de page complete : %s , Reste de la derniere page a completer : %s " % (nb_page_complete , reste_page ))
@@ -75,7 +75,7 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
 	fichier = open(fich_txt , "r")
 	cpt_nbl = 0
 	msk_1 = 0b1111111100000000	# Pour la recuperation des datas forts
-	msk_2 = 0b0001111100000000	# Pour la recuperation des @ H
+	msk_2 = 0b0001111100000000	# Pour la recuperation des @ H # 0b0001111100000000 
 	msk_3 = 0b11000000		# Pour la recuperation des @ L
 
 	for indice in range(0 , nb_page_complete):	# Remplissage des pages completes
@@ -133,3 +133,64 @@ def progr_flash(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_
         fichier.close()
         spi.close()
         print("Programme mem flash Done.")
+
+def progr_flash_48(fich_txt , nb_page_complete , reste_page , nb_mot_page, nb_page_totale , LPMP_L , LPMP_H , WPMP ):
+	fichier = open(fich_txt , "r")
+	msk_1 = 0b1111111100000000      # Pour la recuperation des datas forts
+#	msk_2 = 0b
+	for indice in range(0 , nb_page_complete):      # Remplissage des pages completes
+		for indice_bis in range(0 , nb_mot_page):
+			ligne = fichier.readline()
+                        adr_data = ligne.split(":") # Recupere @ d'un cote et data de l'au$
+                        adr_l = adr_data[0]
+                        data_l = adr_data[1]
+                        adr_l = int(adr_l , 16)
+#			print("%s" % hex(adr_l))
+			adr_low = adr_l & 0b11111111
+			adr_high = adr_l & 0b1111111100000000
+			int(adr_low)
+			int(adr_high)
+			print("%s %s " %( hex(adr_high) , hex(adr_low)))
+                        data_l = data_l.split('\r\n')
+                        data_l[0] = int(data_l[0], 16)	
+			data_fort = data_l[0] & msk_1
+                        data_fort = data_fort >> 8
+                        data_faible = data_l[0] & 255
+			adr_low_bis = adr_low & 00011111
+#			print("%s %s : %s %s " %( hex(adr_fort) , hex(adr_faible) , hex(data_fort) , hex(data_faible) ) )
+			spi.writebytes([LPMP_L , 0x00 , adr_low_bis , data_faible])  # Load Programm Memory Page Low Byte = 0x40
+			spi.writebytes([LPMP_H , 0x00 , adr_low_bis , data_fort])    # Load Programm Memory Page High Byte = 0x48
+
+		grp_haut = adr_high
+		grp_bas = adr_low & 0b11000000
+		print(bin(grp_haut) , bin(grp_bas))
+		spi.writebytes([WPMP , grp_haut ,grp_bas , 0]) # Ecriture du groupe
+
+	for indice_biss in range(0 , reste_page): # Remplissage de la page incomplete
+		ligne = fichier.readline()
+                adr_data = ligne.split(":") # Recupere @ d'un cote et data de l'au$
+                adr_l = adr_data[0]
+                data_l = adr_data[1]
+                adr_l = int(adr_l , 16)
+                adr_low = adr_l & 0b11111111
+                adr_high = adr_l & 0b1111111100000000
+                int(adr_low)
+                int(adr_high)
+                print("%s %s " %( hex(adr_high) , hex(adr_low)))
+                data_l = data_l.split('\r\n')
+                data_l[0] = int(data_l[0], 16)
+                data_fort = data_l[0] & msk_1
+                data_fort = data_fort >> 8
+                data_faible = data_l[0] & 255
+                adr_low_bis = adr_low & 00011111
+                spi.writebytes([LPMP_L , 0x00 , adr_low_bis , data_faible])  # Load Programm Memory Page Low Byte = 0x40
+                spi.writebytes([LPMP_H , 0x00 , adr_low_bis , data_fort])    # Load Programm Memory Page High Byte = 0x48
+
+	grp_haut = adr_high
+        grp_bas = adr_low & 0b11000000
+        print(bin(grp_haut) , bin(grp_bas))
+        spi.writebytes([WPMP , grp_haut ,grp_bas , 0]) # Ecriture du groupe
+
+	fichier.close()
+
+
