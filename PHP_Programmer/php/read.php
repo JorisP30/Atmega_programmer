@@ -11,8 +11,7 @@ $progName = $urlProgramPy."/".$progPyName["read"];
 $command = "sudo python ".$progName." ".$data_flash." ".$_POST["args"];
 $return = shell_exec($command);
 
-$filename = $atm."/".$atmFolders[1]."/".date("d-m-Y H:i:s");
+$filename = $atm."/".$atmFolders[1]."/console_output.txt";
 file_put_contents($absolutePathAtm."/".$filename, $return);
-echo $command;
-echo "Write result in ".$filename;
+echo "Write result in console_output.txt and data_flash.txt";
 ?>
