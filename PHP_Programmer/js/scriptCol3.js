@@ -20,7 +20,7 @@ function checkArgumentMissingError($button) {
 }
 
 $(function(){
-  
+
   function sendAction(url, arg, functionEnd) {
     $.post(url, arg, function (data) {
       writeInConsole(data);
@@ -30,14 +30,14 @@ $(function(){
       }
     });
   }
-  
+
   function setActionButtonInactive() {
     $.each(actionButtons, function(index, value) {
       $("#" + value).addClass("inactive");
     });
     $("#writeButton").addClass("inactive");
   }
-  
+
   function setActionButtonActive() {
     toggleWriteButton();
     $.each(actionButtons, function(index, value) {
@@ -52,7 +52,7 @@ $(function(){
     checkArgumentMissingError($this);
     writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + "");
     setActionButtonInactive();
-    sendAction($this.attr("url"), {atm: getSelectedAtm()});
+    sendAction($this.attr("url"), {atm: getSelectedAtm(), args: $this.attr("args")});
   }
   function writeButton($this) {
     if ($this.hasClass("inactive")) {
@@ -62,7 +62,7 @@ $(function(){
     checkArgumentMissingError($this);
     writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectedFile.attr("absoluteFile"));
     setActionButtonInactive();
-    sendAction($this.attr("url"), {});
+    sendAction($this.attr("url"), {args: $this.attr("args")});
   }
   function readButton($this) {
     if ($this.hasClass("inactive")) {
@@ -71,7 +71,7 @@ $(function(){
     checkArgumentMissingError($this);
     writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + "");
     setActionButtonInactive();
-    sendAction($this.attr("url"), {atm: getSelectedAtm()}, function() {
+    sendAction($this.attr("url"), {atm: getSelectedAtm(), args: $this.attr("args")}, function() {
       loadFile();
     });
   }

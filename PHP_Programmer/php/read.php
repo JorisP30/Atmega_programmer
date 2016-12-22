@@ -9,4 +9,3 @@ $filename = $atm."/".$atmFolders[1]."/".date("d-m-Y H:i:s");
 file_put_contents($absolutePathAtm."/".$filename, "Retoure de la fonction READ\n");
 echo "Write result in ".$filename;
 ?> 
- 
