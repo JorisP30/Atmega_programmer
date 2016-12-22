@@ -10,7 +10,7 @@
   $urlSaveAtm = $urlBase."/php/saveAtm.php";
   $urlJs = $urlBase."/js/";
   $urlBaseAtm = $urlBase."/atm";
-  $urlProgramPy = $urlBase."/programmes_python";
+  $urlProgramPy = $_SERVER["DOCUMENT_ROOT"]."/programmes_python";
   $progPyName = array(
     "read" => "lecture_spi.py",
     "write" => "ecriture_spi.py",
