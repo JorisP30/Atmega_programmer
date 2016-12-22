@@ -1,5 +1,7 @@
 <?php
 include_once("include.php");
-sleep(1);
-echo "Done";
-?> 
+$progName = $urlProgramPy."/".$progPyName["erase"];
+$command = "sudo python ".$progName;
+$return = shell_exec($command);
+echo $return;
+?>
