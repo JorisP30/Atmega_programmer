@@ -1,5 +1,8 @@
 <?php
 include_once("include.php");
-sleep(1);
-echo "write ".$_POST["args"];
+$progName = $urlProgramPy."/".$progPyName["write"];
+$command = "sudo python ".$progName." ".$_POST["args"]." ".$_POST["file"];
+echo $command;
+$return = shell_exec($command);
+echo $return;
 ?>

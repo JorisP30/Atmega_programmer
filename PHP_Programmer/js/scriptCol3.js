@@ -62,7 +62,7 @@ $(function(){
     checkArgumentMissingError($this);
     writeCommandeInConsole($this.attr("command") + " " + $this.attr("args") + $selectedFile.attr("absoluteFile"));
     setActionButtonInactive();
-    sendAction($this.attr("url"), {args: $this.attr("args")});
+    sendAction($this.attr("url"), {args: $this.attr("args"), file: $selectedFile.attr("absoluteFile")});
   }
   function readButton($this) {
     if ($this.hasClass("inactive")) {
