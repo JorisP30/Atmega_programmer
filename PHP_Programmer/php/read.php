@@ -6,7 +6,7 @@ if (!isset($_POST["atm"]) || empty($_POST["atm"])) {
 date_default_timezone_set('UTC');
 $atm = $_POST["atm"];
 
-$data_flash = $atm."/".$atmFolders[1]."/data_flash.txt";
+$data_flash = $absolutePathAtm."/".$atm."/".$atmFolders[1]."/data_flash.txt";
 $progName = $urlProgramPy."/".$progPyName["read"];
 $command = "sudo python ".$progName." ".$data_flash." ".$_POST["args"];
 $return = shell_exec($command);
