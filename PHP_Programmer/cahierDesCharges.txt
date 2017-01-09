@@ -24,3 +24,10 @@ donnée à afficher: image ? texte ? liste ? Du texte principalement
 liste des fichiers:
 les fichiers sont il compatible entre plusieurs atm ? Non chaque Atm aura des fichiers different mais tous en .rom
 la liste doit-elle changer en fonction de l'atm selectionné ? Oui, afficher la liste des fichier a envoiyer en fonction de l'Atm ca pourrais etre cool !
+
+#############################################################################################
+Modifications :
+
+- Ajout bouton lecture EEPROM => Lecture de toute la EEPROM
+- Ajout lectre EEPROM a une @ saisi par l'utilisateur
+- Bouton READ => Bouton READ FLASH
