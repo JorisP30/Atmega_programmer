@@ -1,0 +1,156 @@
+div#settings {
+  font-size: 0px;
+  background-color: #4e6687;
+  color: white;
+}
+div#settings > div {
+  font-size: 16px;
+  display: inline-block;
+  margin: 1%;
+}
+p.selected {
+  background-color: #2b4465;
+}
+
+/* list */
+.atmList {
+  width: 28%;
+  padding-top: 2%;
+}
+.manageAtmList {
+  font-size: 0px;
+}
+.manageAtmList p {
+  display: inline-block;
+  width: 44%;
+  font-size: 16px;
+  margin: 0px 3%;
+  height: 100%;
+  padding: 5% 0%;
+  box-shadow: 0px 0px 3px 3px #364860;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.manageAtmList p.add {
+  background-color: #3aa42a;
+}
+.manageAtmList p.remove {
+  background-color: #cf2b30;
+}
+.manageAtmList img {
+  height: 25px;
+  vertical-align: middle;
+}
+.manageAtmList .add:hover {
+  background-color: #5da453;
+}
+.manageAtmList .remove:hover {
+  background-color: rgb(206, 66, 71);
+}
+
+.atmList .list {
+  margin-top: 10%;
+  max-height: 45vh;
+  overflow: auto;
+}
+
+.atmList .list p {
+  cursor: default;
+  padding: 5% 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.atmList .list p:hover {
+  background-color: #6b89b1;
+}
+
+/* col2 */
+div.amtSettings {
+  width: 68%;
+  vertical-align: top;
+  text-align: left;
+  height: 100%;
+}
+
+.atmScmd {
+  font-size: 0px;
+  margin-bottom: 2%;
+}
+.atmScmd p {
+  font-size: 16px;
+  display: inline-block;
+  margin: 0px;
+  padding: 5%;
+  cursor: pointer;
+}
+.atmScmd p:hover {
+  background-color: #6b89b1;
+}
+.amtSettings > form {
+  margin: 0px;
+  padding: 2%;
+}
+
+/* info */
+textarea.atmInfo { 
+  height: 35vh;
+  resize: none;
+}
+.inputatm {
+  width: 94%;
+  padding: 3%;
+  border: 0px;
+  margin: 0px;
+}
+input#atmName {
+  margin-bottom: 2%;
+}
+
+/* commande */
+.atmSCommand p {
+  margin: 0px;
+  margin-bottom: 2%;
+  font-size: 14px;
+}
+.atmSCommand span {
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.atmSCommand input {
+  width: 94%;
+  border: 0px;
+  margin: 0px;
+  margin-bottom: 8%;
+  padding: 3%;
+}
+
+/* footer */
+.atmSFooter {
+  display: block;
+  font-size: 0px;
+  width: 100%;
+}
+div.atmSFooter p.popupButton {
+  display: inline-block;
+  width: 40%;
+  font-size: 16px;
+  margin: 2.5%;
+  box-shadow: 0px 0px 4px 4px #364860;
+}
+.atmSFooter {
+  background-color: #4e6687;
+}
+
+.atmSFooter .popupButton.confirm {
+  background-color: #3aa42a;
+}
+.atmSFooter .popupButton.confirm:hover {
+  background-color: #5da453;
+}
+.atmSFooter .popupButton.cancel {
+  background-color: #cf2b30;
+}
+.atmSFooter .popupButton.cancel:hover {
+  background-color: rgb(206, 66, 71);
+}
